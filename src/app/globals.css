@@ -1,26 +1,39 @@
+/* =============================================================================
+   globals.css — ESTILOS GLOBALES
+   =============================================================================
+
+   Este archivo se importa en layout.tsx y aplica a TODA la app.
+
+   "@import "tailwindcss"" activa Tailwind CSS, que es un framework de estilos
+   basado en clases utilitarias. En vez de escribir CSS custom como:
+
+      .mi-boton { padding: 8px 16px; background: blue; }
+
+   Usás clases directamente en el HTML/JSX:
+
+      <button className="px-4 py-2 bg-blue-500">
+
+   Tailwind genera SOLO el CSS de las clases que realmente usás,
+   así que el archivo final es muy liviano.
+
+   "@theme inline" es de Tailwind v4: define variables CSS que Tailwind
+   puede usar en sus clases utilitarias (ej: bg-background, text-foreground).
+   ============================================================================= */
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9; /* stone-50: fondo cálido, no blanco puro */
+  --foreground: #1c1917; /* stone-900: texto oscuro cálido */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
