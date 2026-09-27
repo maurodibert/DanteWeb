@@ -32,6 +32,8 @@ const GALLERY: { src: string; w: number; h: number; name: string | null; wide?: 
   { src: "/img/p4.jpg", w: 640, h: 623, name: null },
   { src: "/img/p5.jpg", w: 640, h: 424, name: null },
   { src: "/img/p2.jpg", w: 640, h: 427, name: null, wide: true },
+  { src: "/img/p9.jpg", w: 1280, h: 960, name: null },
+  { src: "/img/p10.jpg", w: 1280, h: 960, name: null, wide: true },
 ];
 
 const P = { fontSize: 14.5, lineHeight: 1.78, color: "var(--plum-2)", maxWidth: "50ch" } as const;
