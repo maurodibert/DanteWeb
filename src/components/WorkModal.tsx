@@ -56,98 +56,100 @@ export function WorkModal({ work: w, onClose }: { work: Work; onClose: () => voi
     <>
       <div className={`scrim${shown ? " on" : ""}`} onClick={onClose} />
       <div className={`modal${shown ? " on" : ""}`}>
-        <div className="box">
-          <div className="pg">
-            <Image src={sheetOf(w)} alt={w.title} width={620} height={878} />
-          </div>
-          <div className="sd">
-            <button className="xx" onClick={onClose} aria-label="Cerrar">
-              ×
-            </button>
-            <p className="kicker">Nº {w.ref || "—"}</p>
-            <h2>{w.title}</h2>
-            <dl className="spec">
-              {spec
-                .filter(([, v]) => v)
-                .map(([k, v]) => (
-                  <div key={k}>
-                    <dt>{k}</dt>
-                    <dd>{v}</dd>
-                  </div>
-                ))}
-            </dl>
-
-            {media.length > 0 && (
-              <div className="med">
-                <p className="kicker" style={{ color: "var(--plum-3)" }}>{t("listenT")}</p>
-                <ul>
-                  {media.map((m) => (
-                    <li key={m.u}>
-                      <a href={m.u} target="_blank" rel="noopener">
-                        <span className="ico">
-                          {m.k === "v" ? (
-                            <svg width="9" height="10" viewBox="0 0 9 10" fill="currentColor"><path d="M0 0l9 5-9 5z" /></svg>
-                          ) : (
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
-                              <path d="M10.4 1.4v6M4.6 2.8v5.6M10.4 1.4L4.6 2.8" />
-                              <circle cx="2.9" cy="9.1" r="1.7" />
-                              <circle cx="8.7" cy="7.6" r="1.7" />
-                            </svg>
-                          )}
-                        </span>
-                        {m.t}
-                      </a>
-                    </li>
+        <div className="boxw">
+          <button className="xx" onClick={onClose} aria-label="Cerrar">
+            ×
+          </button>
+          <div className="box">
+            <div className="pg">
+              <Image src={sheetOf(w)} alt={w.title} width={620} height={878} />
+            </div>
+            <div className="sd">
+              <p className="kicker">Nº {w.ref || "—"}</p>
+              <h2>{w.title}</h2>
+              <dl className="spec">
+                {spec
+                  .filter(([, v]) => v)
+                  .map(([k, v]) => (
+                    <div key={k}>
+                      <dt>{k}</dt>
+                      <dd>{v}</dd>
+                    </div>
                   ))}
-                </ul>
-              </div>
-            )}
+              </dl>
 
-            {w.forSale ? (
-              <>
-                {/* En mobile la aclaración va acá arriba y la barra de compra queda fija abajo. */}
-                <p className="fine mfine">{t("hint")}</p>
-                <div className="buy">
-                  <div className="qr">
-                    <div>
-                      <span className="kicker" style={{ color: "var(--plum-3)" }}>{t("copies")}</span>
-                      <div className="stp">
-                        <button aria-label="menos" onClick={() => setQ(qty - 1)}>−</button>
-                        <input type="number" min={1} value={qty} onChange={(e) => setQ(parseInt(e.target.value || "1", 10))} />
-                        <button aria-label="más" onClick={() => setQ(qty + 1)}>+</button>
-                      </div>
-                      <p style={{ fontSize: 11.5, color: "var(--plum-3)", marginTop: 6 }}>{t("perS")}</p>
-                    </div>
-                    <div className="amt">
-                      <b>{eur(u * qty)}</b>
-                      <span>
-                        {eur(u)} {t("each")}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="fine">{t("hint")}</p>
-                  <button className="full" onClick={addToBag}>
-                    {added ? t("added") : t("add")}
-                  </button>
+              {media.length > 0 && (
+                <div className="med">
+                  <p className="kicker" style={{ color: "var(--plum-3)" }}>{t("listenT")}</p>
+                  <ul>
+                    {media.map((m) => (
+                      <li key={m.u}>
+                        <a href={m.u} target="_blank" rel="noopener">
+                          <span className="ico">
+                            {m.k === "v" ? (
+                              <svg width="9" height="10" viewBox="0 0 9 10" fill="currentColor"><path d="M0 0l9 5-9 5z" /></svg>
+                            ) : (
+                              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                <path d="M10.4 1.4v6M4.6 2.8v5.6M10.4 1.4L4.6 2.8" />
+                                <circle cx="2.9" cy="9.1" r="1.7" />
+                                <circle cx="8.7" cy="7.6" r="1.7" />
+                              </svg>
+                            )}
+                          </span>
+                          {m.t}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </>
-            ) : (
-              <div className="out">
-                <b>
-                  {t("extT")} {w.publisher || "—"}.
-                </b>
-                <br />
-                {t("extB")}
-                {w.publisherUrl && (
-                  <>
-                    <br />
-                    <a className="extlink" href={w.publisherUrl} target="_blank" rel="noopener">
-                      {t("extGo")} ↗
-                    </a>
-                  </>
-                )}
-              </div>
-            )}
+              )}
+
+              {w.forSale ? (
+                <>
+                  {/* En mobile la aclaración va acá arriba y la barra de compra queda fija abajo. */}
+                  <p className="fine mfine">{t("hint")}</p>
+                  <div className="buy">
+                    <div className="qr">
+                      <div>
+                        <span className="kicker" style={{ color: "var(--plum-3)" }}>{t("copies")}</span>
+                        <div className="stp">
+                          <button aria-label="menos" onClick={() => setQ(qty - 1)}>−</button>
+                          <input type="number" min={1} value={qty} onChange={(e) => setQ(parseInt(e.target.value || "1", 10))} />
+                          <button aria-label="más" onClick={() => setQ(qty + 1)}>+</button>
+                        </div>
+                        <p style={{ fontSize: 11.5, color: "var(--plum-3)", marginTop: 6 }}>{t("perS")}</p>
+                      </div>
+                      <div className="amt">
+                        <b>{eur(u * qty)}</b>
+                        <span>
+                          {eur(u)} {t("each")}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="fine">{t("hint")}</p>
+                    <button className="full" onClick={addToBag}>
+                      {added ? t("added") : t("add")}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className="out">
+                  <b>
+                    {t("extT")} {w.publisher || "—"}.
+                  </b>
+                  <br />
+                  {t("extB")}
+                  {w.publisherUrl && (
+                    <>
+                      <br />
+                      <a className="extlink" href={w.publisherUrl} target="_blank" rel="noopener">
+                        {t("extGo")} ↗
+                      </a>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
