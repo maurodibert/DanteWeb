@@ -4,7 +4,13 @@
 
 Custom website for Dante Andreo's music sheet (partituras) shop, replacing a legacy WordPress site at danteandreo.com.
 
-## Tech Stack
+## Current State
+
+The site is currently a single static `index.html` (inline CSS/JS, ES/EN, views: Home, Catálogo, Dante, Contacto, cart UI) with images in `img/`, deployed to the Vercel project `coro-andreo` (`.vercel/` links it). It came from the `coro-andreo` prototype (Sept 2026). The cart and "Pagar con PayPal" are UI only — no payment integration yet. Content sources (catalog JSON with 321 works, previews, copy) live in `../../Contenido/`.
+
+Next step: port this static site to Next.js (target stack below). The previous Next.js landing (hero frames) is in git history.
+
+## Tech Stack (target)
 
 - **Frontend:** Next.js 14+ (App Router) with TypeScript
 - **Styling:** Tailwind CSS
@@ -61,6 +67,6 @@ When the user grants a permission that required approval, you MUST immediately a
 - Use App Router patterns (not Pages Router)
 - Prefer server components where possible
 - Keep catalog in JSON for simplicity initially
-- All UI text in Spanish
+- UI text in Spanish and English (copy in `../../Contenido/copy.md`)
 - Secure PDF delivery via temporary/signed download links
 - Developer context: Mau is a mobile dev (React/Flutter) learning web dev - keep web explanations clear
