@@ -31,7 +31,7 @@ header .wrap{display:flex;align-items:center;gap:26px;height:74px}
 .nav a:hover{color:var(--plum)}
 .nav a.on{color:var(--plum);border-bottom-color:var(--coral)}
 .mono{position:absolute;left:50%;transform:translateX(-50%)}
-.mono>a{display:flex;align-items:center;gap:6px}
+.mono>a{display:flex;align-items:center;gap:6px;-webkit-tap-highlight-color:transparent}
 .mono svg{display:block}
 /* Menú mobile: el monograma lo abre. En desktop no existe (está la .nav). */
 .caret{display:none}
@@ -289,8 +289,15 @@ footer a{color:var(--coral)}
   .caret{display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--plum);transition:transform .2s}
   .caret.up{transform:rotate(180deg)}
   /* El menú sale del monograma, como un globito chico */
-  .mmenu{display:flex;flex-direction:column;position:absolute;top:calc(100% + 10px);left:-10px;min-width:200px;padding:6px 0;background:var(--cream-3);border:2px solid var(--plum);box-shadow:6px 6px 0 var(--coral);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s}
-  .mmenu.on{opacity:1;visibility:visible;transform:none}
+  /* Se despliega hacia abajo desde el D/A: el recorte (clip-path) se abre de arriba
+     a abajo y las opciones van apareciendo una detrás de otra. */
+  .mmenu{display:flex;flex-direction:column;position:absolute;top:calc(100% + 10px);left:-10px;min-width:200px;padding:6px 0;background:var(--cream-3);border:2px solid var(--plum);box-shadow:6px 6px 0 var(--coral);visibility:hidden;clip-path:inset(-2px -10px 100% -2px);transition:clip-path .38s cubic-bezier(.2,.7,.3,1),visibility 0s .38s}
+  .mmenu.on{visibility:visible;clip-path:inset(-2px -10px -10px -2px);transition:clip-path .38s cubic-bezier(.2,.7,.3,1),visibility 0s}
+  .mmenu a{opacity:0;transform:translateY(-6px);transition:opacity .2s,transform .2s}
+  .mmenu.on a{opacity:1;transform:none}
+  .mmenu.on a:nth-child(2){transition-delay:.05s}
+  .mmenu.on a:nth-child(3){transition-delay:.1s}
+  .mmenu.on a:nth-child(4){transition-delay:.15s}
   .mmenu a{font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--plum-2);padding:13px 18px}
   .mmenu a+a{border-top:1.5px solid var(--rule)}
   .mmenu a.on{color:var(--crimson)}
