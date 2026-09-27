@@ -6,14 +6,14 @@ Custom website for Dante Andreo's music sheet (partituras) shop, replacing a leg
 
 ## Current State
 
-The site is currently a single static `index.html` (inline CSS/JS, ES/EN, views: Home, Catálogo, Dante, Contacto, cart UI) with images in `img/`, deployed to the Vercel project `coro-andreo` (`.vercel/` links it). It came from the `coro-andreo` prototype (Sept 2026). The cart and "Pagar con PayPal" are UI only — no payment integration yet. Content sources (catalog JSON with 321 works, previews, copy) live in `../../Contenido/`.
+Next.js 16 (App Router) port of the `coro-andreo` static prototype (Sept 2026). Routes: `/`, `/catalogo` (work detail opens as a modal via `?obra=<slug>`), `/dante`, `/contacto`. ES/EN via the `lang` cookie (read server-side in `src/lib/lang.ts`, texts in `src/lib/texts.ts`). Cart in a client Context persisted to localStorage (`src/components/Providers.tsx`). Catalog data: `src/data/works.json` (321 works). Styling is the prototype's hand-written CSS in `src/app/globals.css` (no Tailwind). The cart and "Pagar con PayPal" are UI only — no payment integration yet. Content sources (catalog, previews, copy) live in `../../Contenido/`.
 
-Next step: port this static site to Next.js (target stack below). The previous Next.js landing (hero frames) is in git history.
+`.vercel/` links the folder to the Vercel project `coro-andreo` (still serving the static prototype).
 
 ## Tech Stack (target)
 
 - **Frontend:** Next.js 14+ (App Router) with TypeScript
-- **Styling:** Tailwind CSS
+- **Styling:** plain CSS in `globals.css` (ported from the prototype)
 - **Catalog Data:** JSON files (`data/catalog.json`), migrate to DB later if needed
 - **Payments:** PayPal REST API / PayPal Buttons
 - **Email:** Resend API (free tier up to 3000/month)
@@ -70,3 +70,13 @@ When the user grants a permission that required approval, you MUST immediately a
 - UI text in Spanish and English (copy in `../../Contenido/copy.md`)
 - Secure PDF delivery via temporary/signed download links
 - Developer context: Mau is a mobile dev (React/Flutter) learning web dev - keep web explanations clear
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
