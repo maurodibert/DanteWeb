@@ -1,39 +1,26 @@
 /* =============================================================================
    globals.css — ESTILOS GLOBALES
    =============================================================================
+   "@import "tailwindcss"" activa Tailwind CSS.
 
-   Este archivo se importa en layout.tsx y aplica a TODA la app.
-
-   "@import "tailwindcss"" activa Tailwind CSS, que es un framework de estilos
-   basado en clases utilitarias. En vez de escribir CSS custom como:
-
-      .mi-boton { padding: 8px 16px; background: blue; }
-
-   Usás clases directamente en el HTML/JSX:
-
-      <button className="px-4 py-2 bg-blue-500">
-
-   Tailwind genera SOLO el CSS de las clases que realmente usás,
-   así que el archivo final es muy liviano.
-
-   "@theme inline" es de Tailwind v4: define variables CSS que Tailwind
-   puede usar en sus clases utilitarias (ej: bg-background, text-foreground).
+   "scroll-behavior: smooth" → cuando un link apunta a un ancla (#seccion),
+   el browser scrollea suavemente en vez de saltar de golpe.
    ============================================================================= */
 
 @import "tailwindcss";
 
-:root {
-  --background: #fafaf9; /* stone-50: fondo cálido, no blanco puro */
-  --foreground: #1c1917; /* stone-900: texto oscuro cálido */
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #000000;
+  --color-foreground: #ffffff;
   --font-sans: var(--font-geist-sans);
 }
 
+/* Scroll suave para toda la página */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #000000;
+  color: #ffffff;
 }

@@ -52,6 +52,10 @@ Custom website for Dante Andreo's music sheet (partituras) shop, replacing a leg
 - **OVH Server:** imcbsly.cluster030.hosting.ovh.net
 - **Migration strategy:** Build new site on Vercel, test on Vercel subdomain, switch DNS only when 100% ready
 
+## MANDATORY: Auto-save Permissions
+
+When the user grants a permission that required approval, you MUST immediately add it to the project's `.claude/settings.local.json` so it won't be asked again. Use the most general safe pattern (e.g. `Bash(git add:*)` not `Bash(git add README.md)`). Read the file, add the permission to `permissions.allow`, write it back. Do this EVERY time without exception.
+
 ## Guidelines
 
 - Use App Router patterns (not Pages Router)
