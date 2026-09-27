@@ -7,7 +7,10 @@
 // ficha directamente. Los filtros son estado local (useState).
 //
 // La barra de filtros se repliega apenas elegís algo: quedan solo los filtros
-// activos (con su ×) y el botón "Filtros" para volver a abrirla.
+// activos (con su ×) y el botón "Filtros" para volver a abrirla. En mobile
+// arranca replegada siempre, para no tapar media pantalla. Qué se ve en cada
+// caso lo decide el CSS (.slim, .mopen, .hasf en globals.css), así no hay que
+// averiguar el ancho de pantalla desde JavaScript.
 // =============================================================================
 
 import { useCallback, useState } from "react";
@@ -38,6 +41,7 @@ export function Catalog() {
   const list = WORKS.filter((w) => matches(w, F));
   const anyF = !!(F.v || F.d || F.f);
   const slim = anyF && !fOpen;
+  const nActive = [F.v, F.d, F.f].filter(Boolean).length;
 
   const DUR: [string, string][] = [["1", t("dur1")], ["2", t("dur2")], ["3", t("dur3")]];
   const DIF: [string, string][] = [["1", "1 · " + t("dif1")], ["2", "2 · " + t("dif2")], ["3", "3 · " + t("dif3")]];
@@ -60,15 +64,15 @@ export function Catalog() {
       {num ? <span className="n">{num}</span> : null}
     </button>
   );
-  const count = (
-    <span className="count">
+  const countInner = (
+    <>
       <b>{list.length}</b> {t("works")}
-    </span>
+    </>
   );
 
   return (
     <>
-      <div className={`tools${slim ? " slim" : ""}`}>
+      <div className={`tools${slim ? " slim" : ""}${fOpen ? " mopen" : ""}${anyF ? " hasf" : ""}`}>
         <div className="wrap">
           <div className="sr">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.9">
@@ -84,59 +88,57 @@ export function Catalog() {
               onChange={(e) => setF({ ...F, q: e.target.value })}
             />
           </div>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
-            {slim ? (
-              <>
-                <button className="chip fbtn" onClick={() => setFOpen(true)}>
-                  <Funnel />
-                  {t("filters")}
+          <div className="fbar">
+            <button className="chip fbtn ftoggle" aria-expanded={fOpen} onClick={() => setFOpen(!fOpen)}>
+              <Funnel />
+              {t("filters")}
+              {nActive > 0 && <span className="n">{nActive}</span>}
+            </button>
+            <span className="fbody">
+              <span className="grp">
+                <span className="glbl">{t("mVoi")}</span>
+                {chip("v", "", t("allV"))}
+                {VOICINGS.map(([v, num]) => chip("v", v, v, num))}
+              </span>
+              <span className="grp">
+                <span className="glbl">{t("mDur")}</span>
+                {DUR.map(([v, l]) => chip("d", v, l))}
+              </span>
+              <span className="grp">
+                <span className="glbl">{t("niv")}</span>
+                {DIF.map(([v, l]) => chip("f", v, l))}
+              </span>
+              <span className="frow">
+                <button className="chip fbtn fdone" onClick={() => setFOpen(false)}>
+                  {t("done")}
                 </button>
-                {(["v", "d", "f"] as FilterKey[])
-                  .filter((k) => F[k])
-                  .map((k) => (
-                    <span className="pill" key={k}>
-                      {label(k, F[k])}
-                      <b
-                        role="button"
-                        tabIndex={0}
-                        title={t("rm")}
-                        onClick={() => clear(k)}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" || e.key === " ") {
-                            e.preventDefault();
-                            clear(k);
-                          }
-                        }}
-                      >
-                        ×
-                      </b>
-                    </span>
-                  ))}
-                {count}
-              </>
-            ) : (
-              <>
-                <span className="grp">
-                  <span className="glbl">{t("mVoi")}</span>
-                  {chip("v", "", t("allV"))}
-                  {VOICINGS.map(([v, num]) => chip("v", v, v, num))}
-                </span>
-                <span className="grp">
-                  <span className="glbl">{t("mDur")}</span>
-                  {DUR.map(([v, l]) => chip("d", v, l))}
-                </span>
-                <span className="grp">
-                  <span className="glbl">{t("niv")}</span>
-                  {DIF.map(([v, l]) => chip("f", v, l))}
-                </span>
-                {anyF && (
-                  <button className="chip fbtn" onClick={() => setFOpen(false)}>
-                    {t("done")}
-                  </button>
-                )}
-                {count}
-              </>
-            )}
+                <span className="mcount">{countInner}</span>
+              </span>
+            </span>
+            <span className="factive">
+              {(["v", "d", "f"] as FilterKey[])
+                .filter((k) => F[k])
+                .map((k) => (
+                  <span className="pill" key={k}>
+                    {label(k, F[k])}
+                    <b
+                      role="button"
+                      tabIndex={0}
+                      title={t("rm")}
+                      onClick={() => clear(k)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          clear(k);
+                        }
+                      }}
+                    >
+                      ×
+                    </b>
+                  </span>
+                ))}
+            </span>
+            <span className="count">{countInner}</span>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@
 // El monograma D/A:
 // - En desktop es el link a la home; si ya estás en la home, te sube arriba de todo.
 // - En mobile (< 980px, donde no entra el menú horizontal) abre un menú
-//   desplegable con todas las páginas. Tocar la página en la que ya estás
+//   chico que sale del propio monograma, con todas las páginas. Tocar la página en la que ya estás
 //   también te sube arriba de todo.
 // =============================================================================
 
@@ -81,14 +81,23 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <Link className="mono" href="/" aria-label={t("nHome")} aria-expanded={menuOpen} aria-controls="mmenu" onClick={onMono}>
-            <svg width="46" height="40" viewBox="0 0 46 40" fill="none" style={{ fontFamily: "var(--disp)" }}>
-              <text x="4" y="20" fontSize="19" fill="#2B0A1B">D</text>
-              <text x="26" y="34" fontSize="19" fill="#2B0A1B">A</text>
-              <line x1="32" y1="4" x2="14" y2="36" stroke="#2B0A1B" strokeWidth="1.6" />
-            </svg>
-            <span className={`caret${menuOpen ? " up" : ""}`} aria-hidden="true" />
-          </Link>
+          <div className="mono">
+            <Link href="/" aria-label={t("nHome")} aria-expanded={menuOpen} aria-controls="mmenu" onClick={onMono}>
+              <svg width="46" height="40" viewBox="0 0 46 40" fill="none" style={{ fontFamily: "var(--disp)" }}>
+                <text x="4" y="20" fontSize="19" fill="#2B0A1B">D</text>
+                <text x="26" y="34" fontSize="19" fill="#2B0A1B">A</text>
+                <line x1="32" y1="4" x2="14" y2="36" stroke="#2B0A1B" strokeWidth="1.6" />
+              </svg>
+              <span className={`caret${menuOpen ? " up" : ""}`} aria-hidden="true" />
+            </Link>
+            <nav id="mmenu" className={`mmenu${menuOpen ? " on" : ""}`} aria-hidden={!menuOpen}>
+              {([["/", "nHome"], ...NAV] as [string, TextKey][]).map(([href, key]) => (
+                <Link key={href} href={href} className={pathname === href ? "on" : undefined} onClick={onMenuLink(href)} tabIndex={menuOpen ? 0 : -1}>
+                  {t(key)}
+                </Link>
+              ))}
+            </nav>
+          </div>
           <div className="tail">
             <div className="lng">
               <button aria-pressed={lang === "es"} aria-label="Español" onClick={() => setLang("es")}>
@@ -106,15 +115,6 @@ export function Header() {
             </button>
           </div>
         </div>
-        <nav id="mmenu" className={`mmenu${menuOpen ? " on" : ""}`} aria-hidden={!menuOpen}>
-          <div className="wrap">
-            {([["/", "nHome"], ...NAV] as [string, TextKey][]).map(([href, key]) => (
-              <Link key={href} href={href} className={pathname === href ? "on" : undefined} onClick={onMenuLink(href)} tabIndex={menuOpen ? 0 : -1}>
-                {t(key)}
-              </Link>
-            ))}
-          </div>
-        </nav>
       </header>
       {/* Fuera del <header>: el backdrop-filter del header rompería el position:fixed. */}
       {menuOpen && <div className="mscrim" onClick={() => setMenuOpen(false)} />}

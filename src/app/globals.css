@@ -30,7 +30,8 @@ header .wrap{display:flex;align-items:center;gap:26px;height:74px}
 .nav a{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--plum-2);padding:6px 0;border-bottom:2px solid transparent}
 .nav a:hover{color:var(--plum)}
 .nav a.on{color:var(--plum);border-bottom-color:var(--coral)}
-.mono{position:absolute;left:50%;transform:translateX(-50%);display:grid;place-items:center}
+.mono{position:absolute;left:50%;transform:translateX(-50%)}
+.mono>a{display:flex;align-items:center;gap:6px}
 .mono svg{display:block}
 /* Menú mobile: el monograma lo abre. En desktop no existe (está la .nav). */
 .caret{display:none}
@@ -127,6 +128,19 @@ header .wrap{display:flex;align-items:center;gap:26px;height:74px}
 .count{margin-left:auto;font-size:12.5px;color:var(--plum-2);white-space:nowrap}
 .count b{color:var(--crimson)}
 .tools.slim{padding:9px 0}
+/* Barra de filtros. Desktop: abierta hasta que elegís algo (.slim la repliega).
+   Mobile: siempre replegada; el botón "Filtros" la abre (.mopen). */
+.fbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.fbody,.factive{display:contents}
+.tools .ftoggle,.tools .mcount{display:none}
+.frow{display:contents}
+.mcount{font-size:12.5px;color:var(--plum-2);white-space:nowrap}
+.mcount b{color:var(--crimson)}
+.tools:not(.slim) .factive{display:none}
+.tools.slim .ftoggle{display:inline-flex}
+.tools.slim .fbody{display:none}
+.tools:not(.hasf) .fdone{display:none}
+.ftoggle .n{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:9px;background:var(--plum);color:var(--cream);font-size:11px;opacity:1;margin-left:2px}
 .fbtn{display:inline-flex;align-items:center;gap:8px;border-color:var(--plum);color:var(--plum);font-weight:700}
 .fbtn svg{display:block}
 .pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;padding:7px 7px 7px 14px;border-radius:30px;background:var(--plum);color:var(--cream);white-space:nowrap}
@@ -271,17 +285,37 @@ footer a{color:var(--coral)}
   .box .pg{border-right:none;border-bottom:3px solid var(--plum)}
   .box .pg img{height:260px}
   .nav{display:none}
-  .mono{position:static;transform:none;display:flex;align-items:center;gap:6px}
+  .mono{position:relative;transform:none;left:auto}
   .caret{display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--plum);transition:transform .2s}
   .caret.up{transform:rotate(180deg)}
-  .mmenu{display:block;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:3px solid var(--plum);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+  /* El menú sale del monograma, como un globito chico */
+  .mmenu{display:flex;flex-direction:column;position:absolute;top:calc(100% + 10px);left:-10px;min-width:200px;padding:6px 0;background:var(--cream-3);border:2px solid var(--plum);box-shadow:6px 6px 0 var(--coral);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s}
   .mmenu.on{opacity:1;visibility:visible;transform:none}
-  .mmenu .wrap{display:flex;flex-direction:column;align-items:stretch;gap:0;height:auto;padding-top:6px;padding-bottom:18px}
-  .mmenu a{font-family:var(--disp);font-size:34px;line-height:1.1;padding:12px 0;border-bottom:1.5px solid var(--rule)}
-  .mmenu a:last-child{border-bottom:none}
+  .mmenu a{font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--plum-2);padding:13px 18px}
+  .mmenu a+a{border-top:1.5px solid var(--rule)}
   .mmenu a.on{color:var(--crimson)}
-  .mscrim{display:block;position:fixed;inset:0;top:74px;z-index:59;background:#2B0A1B;opacity:.35}
-  .tools{top:0}
+  .mscrim{display:block;position:fixed;inset:0;z-index:59}
+}
+@media (max-width:980px){
+  .tools{padding:10px 0}
+  .tools .wrap{gap:8px}
+  .fbar{display:contents}
+  .sr{flex:1 1 160px;min-width:0}
+  .sr input{font-size:16px;padding:9px 12px 9px 32px} /* 16px: iOS no hace zoom al enfocar */
+  .tools .ftoggle{display:inline-flex}
+  .tools .fbody{display:none}
+  .tools.mopen .fbody{display:flex;flex-direction:column;gap:8px;width:100%;padding-top:4px}
+  .tools .factive{display:contents}
+  .tools.mopen .factive{display:none}
+  .grp{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -32px;padding:0 32px 2px}
+  .grp::-webkit-scrollbar{display:none}
+  .grp .glbl{min-width:72px}
+  .frow{display:flex;align-items:center;gap:10px}
+  .tools.mopen .fdone{display:inline-flex}
+  .tools .count{display:none}
+  .tools.hasf:not(.mopen) .count{display:inline}
+  .tools.mopen .mcount{display:inline}
+  .grid{padding-top:24px}
 }
 @media (max-width:600px){.picks{grid-template-columns:1fr}.gal figure,.gal figure.w{flex-basis:44%}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
