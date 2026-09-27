@@ -2,7 +2,8 @@
 // =============================================================================
 // WorkModal.tsx — FICHA DE UNA OBRA (primera página, datos y compra)
 // =============================================================================
-// Si la obra se vende acá: selector de copias + "Añadir al pedido".
+// Si la obra se vende acá: selector de copias + "Añadir al pedido". En mobile
+// esa parte queda flotando al pie de la ficha (sticky) para no tener que scrollear.
 // Si la edita una editorial: aviso con el link a la editorial.
 // =============================================================================
 
@@ -103,29 +104,33 @@ export function WorkModal({ work: w, onClose }: { work: Work; onClose: () => voi
             )}
 
             {w.forSale ? (
-              <div className="buy">
-                <div className="qr">
-                  <div>
-                    <span className="kicker" style={{ color: "var(--plum-3)" }}>{t("copies")}</span>
-                    <div className="stp">
-                      <button aria-label="menos" onClick={() => setQ(qty - 1)}>−</button>
-                      <input type="number" min={1} value={qty} onChange={(e) => setQ(parseInt(e.target.value || "1", 10))} />
-                      <button aria-label="más" onClick={() => setQ(qty + 1)}>+</button>
+              <>
+                {/* En mobile la aclaración va acá arriba y la barra de compra queda fija abajo. */}
+                <p className="fine mfine">{t("hint")}</p>
+                <div className="buy">
+                  <div className="qr">
+                    <div>
+                      <span className="kicker" style={{ color: "var(--plum-3)" }}>{t("copies")}</span>
+                      <div className="stp">
+                        <button aria-label="menos" onClick={() => setQ(qty - 1)}>−</button>
+                        <input type="number" min={1} value={qty} onChange={(e) => setQ(parseInt(e.target.value || "1", 10))} />
+                        <button aria-label="más" onClick={() => setQ(qty + 1)}>+</button>
+                      </div>
+                      <p style={{ fontSize: 11.5, color: "var(--plum-3)", marginTop: 6 }}>{t("perS")}</p>
                     </div>
-                    <p style={{ fontSize: 11.5, color: "var(--plum-3)", marginTop: 6 }}>{t("perS")}</p>
+                    <div className="amt">
+                      <b>{eur(u * qty)}</b>
+                      <span>
+                        {eur(u)} {t("each")}
+                      </span>
+                    </div>
                   </div>
-                  <div className="amt">
-                    <b>{eur(u * qty)}</b>
-                    <span>
-                      {eur(u)} {t("each")}
-                    </span>
-                  </div>
+                  <p className="fine">{t("hint")}</p>
+                  <button className="full" onClick={addToBag}>
+                    {added ? t("added") : t("add")}
+                  </button>
                 </div>
-                <p className="fine">{t("hint")}</p>
-                <button className="full" onClick={addToBag}>
-                  {added ? t("added") : t("add")}
-                </button>
-              </div>
+              </>
             ) : (
               <div className="out">
                 <b>

@@ -237,6 +237,7 @@ header .wrap{display:flex;align-items:center;gap:26px;height:74px}
 .amt b{display:block;font-family:var(--disp);font-size:38px;line-height:1}
 .amt span{font-size:11.5px;color:var(--plum-3)}
 .fine{font-size:12.5px;color:var(--plum-2);line-height:1.6;margin-bottom:16px}
+.mfine{display:none}
 .full{display:block;width:100%;padding:16px;background:var(--coral);color:var(--plum);border:2px solid var(--plum);font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;border-radius:40px}
 .full:hover{background:var(--plum);color:var(--cream)}
 .out{margin-top:auto;padding:20px;border:2px dashed var(--rule-2);font-size:13px;line-height:1.6;color:var(--plum-2)}
@@ -305,6 +306,15 @@ footer a{color:var(--coral)}
   .mscrim{display:block;position:fixed;inset:0;z-index:59}
 }
 @media (max-width:980px){
+  /* Ficha de obra: la cantidad y "Añadir al pedido" flotan al pie mientras scrolleás */
+  .box .sd{padding:24px 22px 0}
+  .mfine{display:block;margin:18px 0 20px}
+  .buy .fine{display:none}
+  .buy{position:sticky;bottom:0;margin:0 -22px;padding:14px 22px 16px;background:var(--cream-3);border-top:2px solid var(--plum);box-shadow:0 -10px 18px -12px #2B0A1B55}
+  .buy .qr{margin-bottom:12px}
+  .buy .stp{margin-top:6px}
+  .amt b{font-size:30px}
+  .out{margin-bottom:24px}
   .tools{padding:10px 0}
   .tools .wrap{gap:8px}
   .fbar{display:contents}
