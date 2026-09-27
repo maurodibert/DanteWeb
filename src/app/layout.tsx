@@ -39,7 +39,9 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const lang = await getLang();
   return (
-    <html lang={lang} className={`${abril.variable} ${dm.variable}`}>
+    // suppressHydrationWarning: algunos navegadores (Chrome en iPhone) le agregan
+    // atributos propios al <html> antes de que cargue React; no es un error nuestro.
+    <html lang={lang} className={`${abril.variable} ${dm.variable}`} suppressHydrationWarning>
       <body>
         <Providers lang={lang}>
           <Header />
