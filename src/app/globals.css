@@ -32,6 +32,9 @@ header .wrap{display:flex;align-items:center;gap:26px;height:74px}
 .nav a.on{color:var(--plum);border-bottom-color:var(--coral)}
 .mono{position:absolute;left:50%;transform:translateX(-50%);display:grid;place-items:center}
 .mono svg{display:block}
+/* Menú mobile: el monograma lo abre. En desktop no existe (está la .nav). */
+.caret{display:none}
+.mmenu,.mscrim{display:none}
 .tail{display:flex;align-items:center;gap:14px;margin-left:auto}
 .lng{display:flex;gap:2px;font-size:11px;font-weight:700;letter-spacing:.1em;background:var(--cream-3);border-radius:22px;padding:2px}
 .lng button{display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 7px;border-radius:20px;color:var(--plum-3)}
@@ -268,7 +271,16 @@ footer a{color:var(--coral)}
   .box .pg{border-right:none;border-bottom:3px solid var(--plum)}
   .box .pg img{height:260px}
   .nav{display:none}
-  .mono{position:static;transform:none}
+  .mono{position:static;transform:none;display:flex;align-items:center;gap:6px}
+  .caret{display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--plum);transition:transform .2s}
+  .caret.up{transform:rotate(180deg)}
+  .mmenu{display:block;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:3px solid var(--plum);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+  .mmenu.on{opacity:1;visibility:visible;transform:none}
+  .mmenu .wrap{display:flex;flex-direction:column;align-items:stretch;gap:0;height:auto;padding-top:6px;padding-bottom:18px}
+  .mmenu a{font-family:var(--disp);font-size:34px;line-height:1.1;padding:12px 0;border-bottom:1.5px solid var(--rule)}
+  .mmenu a:last-child{border-bottom:none}
+  .mmenu a.on{color:var(--crimson)}
+  .mscrim{display:block;position:fixed;inset:0;top:74px;z-index:59;background:#2B0A1B;opacity:.35}
   .tools{top:0}
 }
 @media (max-width:600px){.picks{grid-template-columns:1fr}.gal figure,.gal figure.w{flex-basis:44%}}

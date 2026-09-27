@@ -8,7 +8,7 @@
 
 export type Lang = "es" | "en";
 
-export const T={es:{nCat:"Catálogo",nBio:"Dante",nCon:"Contacto",bag:"Pedido",
+export const T={es:{nHome:"Inicio",nCat:"Catálogo",nBio:"Dante",nCon:"Contacto",bag:"Pedido",
  h1a:"El arte de",h1b:"cantar juntos",
  lead:"321 obras corales de Dante Andreo sobre poesía de García Lorca, Alberti y Pedro García Cabrera. Elegís la partitura, decís cuántas copias necesita tu coro y llega a tu correo.",
  cta1:"Ver el catálogo",cta2:"Quién es Dante",
@@ -46,7 +46,7 @@ export const T={es:{nCat:"Catálogo",nBio:"Dante",nCon:"Contacto",bag:"Pedido",
  extT:"Esta obra la edita",extB:"No se vende acá: se consigue en la web de la editorial.",
  empty:"Todavía no elegiste ninguna obra.",items:"obras",cps:"copias",total:"Total",
  pay:"Pagar con PayPal",rm:"Quitar",mailn:"Te mandamos los PDFs apenas se confirme el pago.",yourOrder:"Tu pedido"},
- en:{nCat:"Catalogue",nBio:"Dante",nCon:"Contact",bag:"Order",
+ en:{nHome:"Home",nCat:"Catalogue",nBio:"Dante",nCon:"Contact",bag:"Order",
  h1a:"The art of",h1b:"singing together",
  lead:"321 choral works by Dante Andreo on poetry by García Lorca, Alberti and Pedro García Cabrera. Pick a score, say how many copies your choir needs, and it lands in your inbox.",
  cta1:"See the catalogue",cta2:"Who Dante is",
