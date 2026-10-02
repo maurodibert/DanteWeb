@@ -90,8 +90,8 @@ export default async function DantePage() {
 
         <p className="kicker">{t.tlTag}</p>
         <div className="tl">
-          {TL[lang].map(([y, txt]) => (
-            <div key={y}>
+          {TL[lang].map(([y, txt], i) => (
+            <div key={i}>
               <b>{y}</b>
               <p>{txt}</p>
             </div>

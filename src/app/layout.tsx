@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://danteandreo.com"),
   title: { default: "Dante Andreo — Música coral", template: "%s — Dante Andreo" },
   description:
-    "321 obras corales de Dante Andreo sobre poesía de García Lorca, Alberti y Pedro García Cabrera. Partituras por copia autorizada, entregadas por email.",
+    "341 obras corales de Dante Andreo sobre poesía de García Lorca, Alberti y Pedro García Cabrera. Partituras por copia autorizada, entregadas por email.",
   openGraph: {
     title: "Dante Andreo — El arte de cantar juntos",
-    description: "321 obras corales. Elegís la partitura, decís cuántas copias necesita tu coro y llega a tu correo.",
+    description: "341 obras corales. Eliges la partitura, decides cuántas copias necesita tu coro y llegan a tu correo.",
     images: ["/img/ilustracion.jpg"],
   },
   // Mientras el sitio nuevo no reemplace al WordPress, que Google no lo indexe.
@@ -57,7 +57,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </div>
           </footer>
           <CartPanel />
-          <div className="flag">Prototipo · Ilustrado</div>
         </Providers>
       </body>
     </html>
