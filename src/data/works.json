@@ -56,7 +56,7 @@
   "publisherUrl": null
  },
  {
-  "ref": "221",
+  "ref": "330",
   "title": "Hacia Belén va una burra",
   "voicing": "SA",
   "textAuthor": "Villancico tradicional de Andalucía",
@@ -210,7 +210,7 @@
   "publisherUrl": null
  },
  {
-  "ref": "321",
+  "ref": "332",
   "title": "Mi burrito sabanero",
   "voicing": "SA + piano",
   "textAuthor": "Villancico tradicional de Venezuela",
@@ -225,7 +225,7 @@
  },
  {
   "ref": "322",
-  "title": "Suenan las campana",
+  "title": "Suenan las campanas",
   "voicing": "SA + piano",
   "textAuthor": "Villancico tradicional de Norteamérica",
   "language": "Castellano",
@@ -1008,20 +1008,6 @@
   "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86"
  },
  {
-  "ref": "183",
-  "title": "Tambor de Sequías (Música: Elfidio Alonso Quinteros)",
-  "voicing": "SATB",
-  "textAuthor": "Pedro García Cabrera",
-  "language": "Castellano",
-  "difficulty": 2,
-  "duration": "3:00",
-  "year": 2011,
-  "forSale": true,
-  "publisher": null,
-  "slug": "tambor-de-sequias-sma",
-  "publisherUrl": null
- },
- {
   "ref": "185",
   "title": "Danza de la moza donosa (Música: Alberto Ginastera)",
   "voicing": "SATB",
@@ -1456,7 +1442,7 @@
   "publisherUrl": null
  },
  {
-  "ref": "227",
+  "ref": "331",
   "title": "Perdí mi corazón",
   "voicing": "SATB",
   "textAuthor": "Juan Bautista de Arriaza",
@@ -1470,7 +1456,7 @@
   "publisherUrl": null
  },
  {
-  "ref": "216",
+  "ref": "329",
   "title": "Primero fue una sonrisa",
   "voicing": "SATB",
   "textAuthor": "Pedro Hernández y Hernández",
@@ -1540,7 +1526,7 @@
   "publisherUrl": null
  },
  {
-  "ref": "211",
+  "ref": "328",
   "title": "Retablo extremeño",
   "voicing": "SATB",
   "textAuthor": "Villancicos tradicionales",
@@ -2478,7 +2464,7 @@
   "publisherUrl": null
  },
  {
-  "ref": "204",
+  "ref": "324",
   "title": "Campana sobre campana",
   "voicing": "SMA",
   "textAuthor": "Villancico tradicional de Andalucía",
@@ -2489,10 +2475,11 @@
   "forSale": false,
   "publisher": "CM Ediciones Musicales",
   "slug": "campana-sobre-campana",
-  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86"
+  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86",
+  "collection": "Cinco villancicos andaluces"
  },
  {
-  "ref": "205",
+  "ref": "325",
   "title": "Dime Niño",
   "voicing": "SMA",
   "textAuthor": "Villancico tradicional de Andalucía",
@@ -2503,10 +2490,11 @@
   "forSale": false,
   "publisher": "CM Ediciones Musicales",
   "slug": "dime-nino",
-  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86"
+  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86",
+  "collection": "Cinco villancicos andaluces"
  },
  {
-  "ref": "206",
+  "ref": "326",
   "title": "Chiquirriquitín",
   "voicing": "SMA",
   "textAuthor": "Villancico tradicional de Andalucía",
@@ -2517,10 +2505,11 @@
   "forSale": false,
   "publisher": "CM Ediciones Musicales",
   "slug": "chiquirriquitin",
-  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86"
+  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86",
+  "collection": "Cinco villancicos andaluces"
  },
  {
-  "ref": "207",
+  "ref": "327",
   "title": "La Virgen lava pañales",
   "voicing": "SMA",
   "textAuthor": "Villancico tradicional de Andalucía",
@@ -2531,7 +2520,8 @@
   "forSale": false,
   "publisher": "CM Ediciones Musicales",
   "slug": "la-virgen-lava-panales",
-  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86"
+  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86",
+  "collection": "Cinco villancicos andaluces"
  },
  {
   "ref": "208",
@@ -2545,21 +2535,8 @@
   "forSale": false,
   "publisher": "CM Ediciones Musicales",
   "slug": "una-pandereta-suena",
-  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86"
- },
- {
-  "ref": "46",
-  "title": "En el portal de Belén (Navidad en Hispanoamérica I)",
-  "voicing": "SMA",
-  "textAuthor": "Villancico tradicional de Argentina",
-  "language": "Castellano",
-  "difficulty": 3,
-  "duration": "1:27",
-  "year": 1997,
-  "forSale": false,
-  "publisher": "CM Ediciones Musicales (Navidad en Hispanoamérica I)",
-  "slug": "en-el-portal-de-belen-navidad-en-hispanoamerica-i-2",
-  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86"
+  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86",
+  "collection": "Cinco villancicos andaluces"
  },
  {
   "ref": "98",
@@ -2702,20 +2679,6 @@
   "publisherUrl": null
  },
  {
-  "ref": "136",
-  "title": "Stabat Mater",
-  "voicing": "SMA",
-  "textAuthor": "Liturgia cristiana",
-  "language": "Latín",
-  "difficulty": 3,
-  "duration": "2:41",
-  "year": 2003,
-  "forSale": false,
-  "publisher": "CM Ediciones Musicales (Edición Digital)",
-  "slug": "stabat-mater-3",
-  "publisherUrl": "http://www.cm-ediciones.com/autor.aspx?compositor=86"
- },
- {
   "ref": "141",
   "title": "El Niño y el carpintero (Navidad en Hispanoamérica I)",
   "voicing": "SMA",
@@ -2802,7 +2765,7 @@
  {
   "ref": "238",
   "title": "Viene el agua cantando",
-  "voicing": "SMA",
+  "voicing": "SMA + Piano",
   "textAuthor": "Felipe Diaz Mazuela",
   "language": "Castellano",
   "difficulty": 2,
@@ -3612,20 +3575,6 @@
   "publisherUrl": "http://www.gcc.org.ar/htm/edito/xautor/an.htm"
  },
  {
-  "ref": "145",
-  "title": "Cantares al Niño Manuelito",
-  "voicing": "SMA",
-  "textAuthor": "Melodías tradic. del Perú",
-  "language": "Cast.-Quechua",
-  "difficulty": 2,
-  "duration": null,
-  "year": 2008,
-  "forSale": true,
-  "publisher": null,
-  "slug": "cantares-al-nino-manuelito",
-  "publisherUrl": null
- },
- {
   "ref": "147",
   "title": "Cantos canarios",
   "voicing": "SMA",
@@ -3836,62 +3785,6 @@
   "publisherUrl": null
  },
  {
-  "ref": "144",
-  "title": "Canción de Hautacuperche",
-  "voicing": "SMA + Piano",
-  "textAuthor": "Isabel Medina",
-  "language": "Castellano",
-  "difficulty": 2,
-  "duration": "2:58",
-  "year": 2002,
-  "forSale": true,
-  "publisher": null,
-  "slug": "cancion-de-hautacuperche-2",
-  "publisherUrl": null
- },
- {
-  "ref": "146",
-  "title": "Cantares al Niño Manuelito",
-  "voicing": "SMA + Piano",
-  "textAuthor": "Melodías tradic. del Perú",
-  "language": "Cast.-Quechua",
-  "difficulty": 2,
-  "duration": "6:25",
-  "year": 2008,
-  "forSale": true,
-  "publisher": null,
-  "slug": "cantares-al-nino-manuelito-2-2",
-  "publisherUrl": null
- },
- {
-  "ref": "152",
-  "title": "Era un niño que soñaba",
-  "voicing": "SMA + Piano",
-  "textAuthor": "Antonio Machado",
-  "language": "Castellano",
-  "difficulty": 2,
-  "duration": "3:30",
-  "year": 2004,
-  "forSale": true,
-  "publisher": null,
-  "slug": "era-un-nino-que-sonaba-2",
-  "publisherUrl": null
- },
- {
-  "ref": "157",
-  "title": "La mar quiere ser cielo",
-  "voicing": "SMA + Piano",
-  "textAuthor": "Pedro Lezcano",
-  "language": "Castellano",
-  "difficulty": 2,
-  "duration": "2:32",
-  "year": 2002,
-  "forSale": true,
-  "publisher": null,
-  "slug": "la-mar-quiere-ser-cielo-3",
-  "publisherUrl": null
- },
- {
   "ref": "108",
   "title": "Ari ari naiz",
   "voicing": "SSAA",
@@ -3973,20 +3866,6 @@
   "forSale": true,
   "publisher": null,
   "slug": "carmina-femina",
-  "publisherUrl": null
- },
- {
-  "ref": "178",
-  "title": "Crux fidelis (breve)",
-  "voicing": "SSAATB",
-  "textAuthor": "Liturgia cristiana",
-  "language": "Latín",
-  "difficulty": 3,
-  "duration": "3:12",
-  "year": 2009,
-  "forSale": true,
-  "publisher": null,
-  "slug": "cortame-una-rosa-blanca-ssaa-2",
   "publisherUrl": null
  },
  {
@@ -4491,6 +4370,62 @@
   "forSale": true,
   "publisher": null,
   "slug": "concordando",
+  "publisherUrl": null
+ },
+ {
+  "ref": "333",
+  "title": "Suenan las campanas",
+  "voicing": "SAT + piano",
+  "textAuthor": "Villancico tradicional de Norteamérica",
+  "language": "Castellano",
+  "difficulty": 1,
+  "duration": null,
+  "year": null,
+  "forSale": true,
+  "publisher": null,
+  "slug": "suenan-las-campanas-sat-piano",
+  "publisherUrl": null
+ },
+ {
+  "ref": "334",
+  "title": "Pater Noster - Versión Breve",
+  "voicing": "SATB + Orquesta de cuerdas",
+  "textAuthor": "Liturgia cristiana",
+  "language": "Latín",
+  "difficulty": 2,
+  "duration": null,
+  "year": null,
+  "forSale": true,
+  "publisher": null,
+  "slug": "pater-noster-version-breve-satb-orquesta-de-cuerdas",
+  "publisherUrl": null
+ },
+ {
+  "ref": "335",
+  "title": "Viene el agua cantando",
+  "voicing": "SATB + Piano",
+  "textAuthor": "Felipe Diaz Mazuela",
+  "language": "Castellano",
+  "difficulty": 2,
+  "duration": null,
+  "year": null,
+  "forSale": true,
+  "publisher": null,
+  "slug": "viene-el-agua-cantando-satb-piano",
+  "publisherUrl": null
+ },
+ {
+  "ref": "336",
+  "title": "Una pandereta suena",
+  "voicing": "SMA + Dos Guitarras",
+  "textAuthor": "Villancico tradicional de Andalucía",
+  "language": "Castellano",
+  "difficulty": 2,
+  "duration": null,
+  "year": null,
+  "forSale": true,
+  "publisher": null,
+  "slug": "una-pandereta-suena-sma-dos-guitarras",
   "publisherUrl": null
  }
 ]

@@ -21,6 +21,7 @@ export type Work = {
   publisher: string | null;
   slug: string;
   publisherUrl: string | null;
+  collection?: string; // colección editorial a la que pertenece, p. ej. "Cinco villancicos andaluces"
 };
 
 export const WORKS = data as Work[];
